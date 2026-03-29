@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Membre - Sécurité Intégrée</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 380px;
+            padding: 30px 28px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .auth-container:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 24px;
+            font-weight: 600;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        .error-message {
+            color: #dc3545;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+            border-left: 3px solid #dc3545;
+        }
+
+        .success-message {
+            color: #28a745;
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+            border-left: 3px solid #28a745;
+        }
+
+        hr {
+            margin: 20px 0 0 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .info-text {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="auth-container">
+    <h2>🔐 Accès Sécurisé</h2>
+
+    <form th:action="@{/authenticate}" method="post">
+        <div class="input-group">
+            <label>👤 Identifiant</label>
+            <input type="text" name="username" class="input-field" placeholder="Entrez votre identifiant" required>
+        </div>
+
+        <div class="input-group">
+            <label>🔒 Mot de passe</label>
+            <input type="password" name="password" class="input-field" placeholder="Entrez votre mot de passe" required>
+        </div>
+
+        <button type="submit" class="btn-submit">▶ Connexion</button>
+    </form>
+
+    <div th:if="${param.error}" class="error-message">
+        ⚠ Échec d'authentification - Veuillez vérifier vos informations
+    </div>
+
+    <div th:if="${param.logout}" class="success-message">
+        ✓ Déconnexion réussie - À bientôt !
+    </div>
+
+    <hr>
+    <div class="info-text">
+        Application sécurisée - Tous droits réservés
+    </div>
+</div>
+</body>
+</html>

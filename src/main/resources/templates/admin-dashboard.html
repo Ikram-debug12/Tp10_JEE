@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Administrateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 50px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            background-color: white;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Espace Administrateur</h2>
+    <p>Cette section est réservée aux utilisateurs possédant le rôle <strong>ADMIN</strong>.</p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Déconnexion</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Personnel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; /* Gris clair comme sur votre capture admin */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            width: 500px;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff; /* Bleu comme sur la capture admin */
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-logout {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard-container">
+    <h2>Espace Personnel</h2>
+    <p>Cette page est réservée aux utilisateurs possédant les rôles <strong>USER</strong> ou <strong>ADMIN</strong>.</p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn-logout">Déconnexion</button>
+    </form>
+</div>
+</body>
+</html>

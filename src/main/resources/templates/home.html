@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Espace - Dashboard Personnel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 35px 30px;
+            border-radius: 20px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .access-badge {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .access-badge p {
+            color: #1a4731;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .roles {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .role-chip {
+            background: #edf2f7;
+            padding: 5px 14px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .role-chip.user {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .role-chip.admin {
+            background: #feb2b2;
+            color: #742a2a;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .logout-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .footer-info {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #a0aec0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    <div class="avatar">👤</div>
+    <div class="title">Tableau de bord</div>
+    <div class="subtitle">Plateforme sécurisée</div>
+
+    <div class="access-badge">
+        <p>Authentification confirmée</p>
+    </div>
+
+    <p style="color: #4a5568; font-size: 14px; margin: 10px 0;">
+        Cet espace est accessible aux profils suivants :
+    </p>
+
+    <div class="roles">
+        <span class="role-chip user">📋 Membre</span>
+        <span class="role-chip admin">⚙️ Gestionnaire</span>
+    </div>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="logout-btn">🚪 Mettre fin à la session</button>
+    </form>
+
+    <div class="footer-info">
+        Session sécurisée - Déconnexion recommandée
+    </div>
+</div>
+
+</body>
+</html>
